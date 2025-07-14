@@ -52,9 +52,17 @@ const Index = () => {
                 <Users className="h-4 w-4 mr-1" />
                 Workers
               </Button>
-              <Button variant="ghost" className="text-white hover:bg-slate-700" size="sm">
+              <Button 
+                variant="ghost" 
+                className="text-white hover:bg-slate-700" 
+                size="sm"
+                onClick={() => {
+                  // AI functionality can be added here
+                  console.log("AI button clicked");
+                }}
+              >
                 <FileText className="h-4 w-4 mr-1" />
-                Referral Sources
+                AI
               </Button>
               <Button variant="ghost" className="text-white hover:bg-slate-700" size="sm">
                 <BarChart3 className="h-4 w-4 mr-1" />
