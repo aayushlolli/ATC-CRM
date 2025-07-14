@@ -6,6 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Users, Settings, FileText, Clock, BarChart3, Wrench, MapPin, Menu } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const [searchClients, setSearchClients] = useState("");
@@ -44,10 +45,12 @@ const Index = () => {
           <div className="flex items-center space-x-6">
             <h1 className="text-xl font-bold">VC Test</h1>
             <nav className="hidden md:flex items-center space-x-4">
-              <Button variant="ghost" className="text-white hover:bg-slate-700" size="sm">
-                <Users className="h-4 w-4 mr-1" />
-                Clients
-              </Button>
+              <Link to="/clients">
+                <Button variant="ghost" className="text-white hover:bg-slate-700" size="sm">
+                  <Users className="h-4 w-4 mr-1" />
+                  Clients
+                </Button>
+              </Link>
               <Button variant="ghost" className="text-white hover:bg-slate-700" size="sm">
                 <Users className="h-4 w-4 mr-1" />
                 Workers
