@@ -5,8 +5,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Users, Settings, FileText, Clock, BarChart3, Wrench, MapPin, Menu } from "lucide-react";
+import { Users, Settings, FileText, Clock, BarChart3, Wrench, MapPin, Menu, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 const Index = () => {
   const [searchClients, setSearchClients] = useState("");
@@ -55,18 +56,31 @@ const Index = () => {
                 <Users className="h-4 w-4 mr-1" />
                 Workers
               </Button>
-              <Button 
-                variant="ghost" 
-                className="text-white hover:bg-slate-700" 
-                size="sm"
-                onClick={() => {
-                  // AI functionality can be added here
-                  console.log("AI button clicked");
-                }}
-              >
-                <FileText className="h-4 w-4 mr-1" />
-                AI
-              </Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="text-white hover:bg-slate-700" size="sm">
+                    <FileText className="h-4 w-4 mr-1" />
+                    AI
+                    <ChevronDown className="h-4 w-4 ml-1" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-white">
+                  <DropdownMenuItem 
+                    className="cursor-pointer"
+                    onClick={() => window.open('https://ensurecare.com.au/careers/', '_blank')}
+                  >
+                    Resume Screening
+                  </DropdownMenuItem>
+                  <DropdownMenuItem 
+                    className="cursor-pointer"
+                    onClick={() => {
+                      console.log("LinkedIn Generation clicked");
+                    }}
+                  >
+                    LinkedIn Generation
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
               <Button variant="ghost" className="text-white hover:bg-slate-700" size="sm">
                 <BarChart3 className="h-4 w-4 mr-1" />
                 Reporting
